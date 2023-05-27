@@ -1,49 +1,3 @@
-# ReportSystem
-
-## Features
-- **Accept/Decline** Report
-- **Custom** Messages & Reasons
-- **MySQL** Support
-- **Webhook** Support
-- **Notifications**
-
-## Commands
-| Usage    | Description          | Permission                   |
-|----------|----------------------|------------------------------|
-| /report  | Report a player      | No Permission                |
-| /reports | See all open reports | reportsystem.command.reports |
-
-## Permissions
-| Permission          | Use                      |
-|---------------------|--------------------------|
-| reportsystem.notify | Getting notifications    |
-
-## Configuration
-```yaml
-provider: mysql
-mysql:
-  host: localhost
-  port: 3306
-  username: root
-  password: your_password
-  database: your_database
-webhook:
-  enabled: false
-  webhook_url: your_url
-reasons:
-  behavior:
-    command: /mute %user% Behavior
-    display_name: §cBehavior
-  spamming:
-    command: /mute %user% Spamming
-    display_name: §cSpamming
-  cheating:
-    command: /ban %user% Cheating
-    display_name: §cCheating
-```
-
-## Messages
-```yaml
 prefix: "§cReport §8» §r"
 no.permissions: "{PREFIX}§cYou don't have the permission to do this!"
 command.report.description: "Report a player"
@@ -106,4 +60,3 @@ webhook.declined.field.moderator.value: "%moderator%"
 webhook.declined.field.notes.name: "Notes"
 webhook.declined.field.notes.value: "%notes%"
 webhook.declined.field.notes.value.empty: "No notes given"
-```
