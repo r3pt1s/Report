@@ -4,3 +4,4 @@ api: 4.0.0
 main: r3pt1s\reportsystem\ReportSystem
 author: r3pt1s
 description: ReportSystem for pocketmine-mp
+load: POSTWORLD

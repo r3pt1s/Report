@@ -2,9 +2,10 @@
 
 namespace r3pt1s\reportsystem\config;
 
+use r3pt1s\configlib\Configuration;
 use r3pt1s\reportsystem\ReportSystem;
 
-class MainConfig extends \Configuration {
+class MainConfig extends Configuration {
 
     public const PROVIDERS = ["json", "yml", "mysql"];
 
