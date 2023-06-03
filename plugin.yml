@@ -1,6 +1,7 @@
-name: ReportSystem
+name: Report
 version: 1.0
-api: 4.0.0
-main: r3pt1s\reportsystem\ReportSystem
+api: 5.0.0
+main: r3pt1s\report\ReportSystem
 author: r3pt1s
 description: ReportSystem for pocketmine-mp
+load: POSTWORLD
