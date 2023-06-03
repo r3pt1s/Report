@@ -2,12 +2,13 @@
 
 namespace r3pt1s\report\event;
 
+use JetBrains\PhpStorm\Pure;
 use pocketmine\player\Player;
 use r3pt1s\report\manager\Report;
 
 class ReportAcceptEvent extends ReportEvent {
 
-    public function __construct(
+    #[Pure] public function __construct(
         private Player $moderator,
         Report $report
     ) {

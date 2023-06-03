@@ -2,6 +2,7 @@
 
 namespace r3pt1s\report\manager;
 
+use JetBrains\PhpStorm\Pure;
 use pocketmine\console\ConsoleCommandSender;
 use pocketmine\player\Player;
 use pocketmine\Server;
@@ -189,7 +190,7 @@ final class ReportManager {
         return count(array_filter($this->reports, fn(Report $report) => $report->getTarget() == $target)) > 0;
     }
 
-    public function getReport(string $target): ?Report {
+    #[Pure] public function getReport(string $target): ?Report {
         foreach ($this->reports as $report) {
             if ($report->getTarget() == $target) return $report;
         }
