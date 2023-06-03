@@ -1,4 +1,4 @@
-# [ReportSystem](https://poggit.pmmp.io/p/Report/1.0) [![](https://poggit.pmmp.io/shield.state/Report)](https://poggit.pmmp.io/p/Report)
+# Report
 
 ## Features
 - **Accept/Decline** Report
@@ -6,17 +6,18 @@
 - **MySQL** Support
 - **Webhook** Support
 - **Notifications**
+- **Saving** reports for later
 
 ## Commands
-| Usage    | Description          | Permission                   |
-|----------|----------------------|------------------------------|
-| /report  | Report a player      | No Permission                |
-| /reports | See all open reports | reportsystem.command.reports |
+| Usage    | Description          | Permission             |
+|----------|----------------------|------------------------|
+| /report  | Report a player      | No Permission          |
+| /reports | See all open reports | report.command.reports |
 
 ## Permissions
-| Permission          | Use                      |
-|---------------------|--------------------------|
-| reportsystem.notify | Getting notifications    |
+| Permission    | Use                      |
+|---------------|--------------------------|
+| report.notify | Getting notifications    |
 
 ## Configuration
 ```yaml
