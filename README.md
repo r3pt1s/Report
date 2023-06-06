@@ -1,4 +1,6 @@
-# [Report](poggit.pmmp.io/p/Report) [![](https://poggit.pmmp.io/shield.state/Report)](https://poggit.pmmp.io/p/Report)
+# Report
+
+Report players if there are cheating or disrespecting the rules and let moderators punish them by some simple clicks!
 
 ## Features
 - **Accept/Decline** Report
