@@ -43,7 +43,7 @@ class ReportSystem extends PluginBase {
 
         $this->getServer()->getPluginManager()->registerEvents(new EventListener(), $this);
 
-        $this->getServer()->getCommandMap()->registerAll("reportSystem", [
+        $this->getServer()->getCommandMap()->registerAll("Report", [
             new ReportCommand(),
             new ReportsCommand()
         ]);
