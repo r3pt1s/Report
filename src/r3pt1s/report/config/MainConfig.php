@@ -39,7 +39,12 @@ class MainConfig extends Config {
 
     public function __construct() {
         self::$instance = $this;
-        parent::__construct(ReportSystem::getInstance()->getDataFolder() . "config.yml", self::YAML);
+        parent::__construct(ReportSystem::getInstance()->getDataFolder() . "config.yml", self::YAML, [
+            "provider" => $this->provider,
+            "mysql" => $this->mysql,
+            "webhook" => $this->webhook,
+            "reasons" => $this->reasons
+        ]);
 
         $this->provider = $this->get("provider", $this->provider);
         try {

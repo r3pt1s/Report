@@ -4,11 +4,8 @@ namespace r3pt1s\report\util;
 
 class Database extends Medoo {
 
-    private array $data;
-
-    public function __construct(array $data) {
-        parent::__construct(array_merge(["type" => "mysql"], $data));
-        $this->data = $data;
+    public function __construct(private array $data) {
+        parent::__construct(array_merge(["type" => "mysql"], $this->data));
     }
 
     public function exec(string $statement, array $map = [], callable $callback = null): ?\PDOStatement {

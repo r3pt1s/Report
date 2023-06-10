@@ -5,6 +5,7 @@ namespace r3pt1s\report\command;
 use JetBrains\PhpStorm\Pure;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
+use pocketmine\permission\DefaultPermissions;
 use pocketmine\player\Player;
 use pocketmine\plugin\PluginOwned;
 use pocketmine\Server;
@@ -19,6 +20,7 @@ class ReportCommand extends Command implements PluginOwned {
 
     public function __construct() {
         parent::__construct("report", Utils::parseMessage("command.report.description"), "", []);
+        $this->setPermission(DefaultPermissions::ROOT_USER);
     }
 
     public function execute(CommandSender $sender, string $commandLabel, array $args): bool {

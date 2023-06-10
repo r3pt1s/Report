@@ -3,30 +3,29 @@
 namespace r3pt1s\report\task;
 
 use pocketmine\scheduler\AsyncTask;
+use pocketmine\thread\NonThreadSafeValue;
 use r3pt1s\report\config\MainConfig;
-use r3pt1s\report\util\AsyncExecutor;
 use r3pt1s\report\util\Database;
 
 class AsyncExecutorTask extends AsyncTask {
 
-    private string $mysqlData;
+    private NonThreadSafeValue $mysql;
 
-    public function __construct(
-        private \Closure $closure,
-        private ?string $id = null
-    ) {
-        $this->mysqlData = json_encode(MainConfig::getInstance()->getMysql());
+    public function __construct(private \Closure $closure, private ?\Closure $completion = null) {
+        $this->mysql = new NonThreadSafeValue(MainConfig::getInstance()->getMysql());
     }
 
     public function onRun(): void {
-        $this->setResult(($this->closure)(new Database(json_decode($this->mysqlData, true))));
+        $this->setResult(($this->closure)($this, new Database($this->mysql->deserialize())));
     }
 
     public function onCompletion(): void {
-        if ($this->id !== null) {
-            $closure = AsyncExecutor::$taskClosures[$this->id];
-            ($closure)($this->getResult());
-            unset(AsyncExecutor::$taskClosures[$this->id]);
+        if ($this->completion !== null) {
+            ($this->completion)($this->getResult());
         }
+    }
+
+    public static function new(\Closure $closure, ?\Closure $completion = null): self {
+        return new self($closure, $completion);
     }
 }
